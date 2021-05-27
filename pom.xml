@@ -15,7 +15,7 @@
 	<description>mapper sample service</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 	</properties>
 
@@ -51,6 +51,7 @@
 			<scope>test</scope>
 		</dependency>
 		
+
 		<!-- springcloud -->
 <!-- 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -121,6 +122,13 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
+		
+		
+		<!-- webflux, jetty, disable tomcat server -->
+<!-- 		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency> -->
 
 				
 	</dependencies>
