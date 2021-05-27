@@ -1,0 +1,13 @@
+server:
+  port: ${service_port:8000}
+spring:
+  application:
+    name: springcloud-mapper-example-service
+  profiles:
+    active: ${profile:local}
+    include: common 
+mybatis:
+    mapper-locations: classpath:mybatis/mapper/**/*.xml
+    configuration:
+        map-underscore-to-camel-case: true
+    type-aliases-package: com.kb.bfd.sample # base scan package for mybatis type

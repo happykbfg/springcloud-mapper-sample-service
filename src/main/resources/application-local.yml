@@ -1,0 +1,31 @@
+greeting: Hello, from LOCAL
+
+spring:
+  cloud: 
+    config:
+      uri: ${config_servers:http://localhost:9001}
+      searchPaths: ${spring.application.name}
+      default-label: main
+  logging:
+    pattern:
+      console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}]){yellow} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+    level:
+      org.springframework: debug
+      com.kb.example: debug
+#      org.hibernate: debug
+      jdbc.sqlonly: DEBUG 
+#      jdbc: DEBUG
+# db connection
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://169.56.113.36:31815/msadb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: msa
+    password: "passw0rd"
+    sql-script-encoding: utf-8
+    hikari:
+      connection-timeout: 5000
+      validation-timeout: 1000
+      maximum-pool-size: 30
+      minimum-idle: 2
+      connection-test-query: SELECT 1
+    
